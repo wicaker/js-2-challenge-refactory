@@ -1,23 +1,23 @@
-const Str = {
-  lower: function(input){
+class Str {
+  static lower(input){
     return input.toLowerCase();
-  },
-  upper: function(input){
+  }
+  static upper(input){
     return input.toUpperCase();
-  },
-  capitalize: function(input){
+  }
+  static capitalize(input){
     let result = [];
     input = input.split(' ');
     for(let i=0; i<input.length; i++){
       result.push(input[i].charAt(0).toUpperCase() + input[i].slice(1));
     }
     return result.join(' ');
-  },
-  reverse: function(input){
+  }
+  static reverse(input){
     input = input.split('');
     return input.reverse().join('');
-  },
-  contains: function(string, wordContain){
+  }
+  static contains(string, wordContain){
     if(typeof wordContain === 'string'){
       var word = new RegExp(wordContain,"g");
       if(string.match(word)===null){
@@ -34,8 +34,8 @@ const Str = {
       }
       return true;
     }
-  },
-  random: function(length) {
+  }
+  static random(length) {
     var str = "";
     if(length== undefined){
       for ( ; str.length < 16; str += Math.random().toString( 36 ).substr( 2 ) );
@@ -43,8 +43,8 @@ const Str = {
     }
     for ( ; str.length < length; str += Math.random().toString( 36 ).substr( 2 ) );
     return str.substr( 0, length );
-  },
-  slug: function(...input){
+  }
+  static slug(...input){
     if(input.length==1){
       input = input.join('').toLowerCase().replace(/[^\w\s]/gi, '').replace(/ /g,'-');
       return input;
@@ -53,18 +53,18 @@ const Str = {
       input[0] = input.join('').toLowerCase().replace(/[^\w\s]/gi, '').replace(/ /g,input[1]);
       return input[0];
     }
-  },
-  count: function(input){
+  }
+  static count(input){
     return input.length;
-  },
-  countWords: function(input){
+  }
+  static countWords(input){
     input = input.split(' ');
     return input.length;
-  },
-  trim: function(...input){
+  }
+  static trim(...input){
     if(input.length==1){
       input = input.join('');
-      result ='';
+      let result ='';
       if(input.length<100){
         return input;
       }
@@ -76,7 +76,7 @@ const Str = {
       }
     }
     else if(input.length==2){
-      result ='';
+      let result ='';
       if(input[0].length<input[1]){
         return input[0];
       }
@@ -88,7 +88,7 @@ const Str = {
       }
     }
     else if(input.length==3){
-      result ='';
+      let result ='';
       if(input[0].length<input[1]){
         return input[0];
       }
@@ -99,11 +99,11 @@ const Str = {
         return result+input[2];
       }
     }
-  },
-  trimWords: function(...input){
+  }
+  static trimWords(...input){
     if (input.length==1){
       input= input.join('').split(' ');
-      result ='';
+      let result ='';
       if(input.length<30){
         return input;
       }
@@ -115,7 +115,7 @@ const Str = {
       }
     }
     else if(input.length==2){
-      result ='';
+      let result ='';
       if(input[0].split(' ').length<input[1]){
         return input[0];
       }
@@ -127,7 +127,7 @@ const Str = {
       }
     }
     else if(input.length==3){
-      result ='';
+      let result ='';
       if(input[0].split(' ').length<input[1]){
         return input[0];
       }
